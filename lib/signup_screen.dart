@@ -3,6 +3,11 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:hacka/HomeScreen.dart';
 import 'package:hacka/signin_screen.dart';
 import 'package:hacka/util/reusable_widgets.dart';
+import 'package:multiselect/multiselect.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+
+CollectionReference _collectionReference =
+    FirebaseFirestore.instance.collection("korisnici");
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({Key? key}) : super(key: key);
@@ -16,6 +21,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
   TextEditingController _password1TextController = TextEditingController();
   TextEditingController _emailTextController = TextEditingController();
   TextEditingController _userNameTextController = TextEditingController();
+  List<String> selected = [];
+
   String errorMessage = '';
   String errorMessageCode = '';
   @override
@@ -44,7 +51,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
           child: SingleChildScrollView(
             child: Padding(
                 padding: EdgeInsets.fromLTRB(
-                    20, MediaQuery.of(context).size.height * 0.15, 20, 0),
+                    20, MediaQuery.of(context).size.height * 0.1, 20, 0),
                 child: Column(
                   children: <Widget>[
                     /* Text('Registracija',
@@ -59,6 +66,36 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     ),
                     reusableTextField(context, "Ime i prezime",
                         Icons.person_outline, false, _userNameTextController),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    DropDownMultiSelect(
+                      onChanged: (List<String> x) {
+                        setState(() {
+                          selected = x;
+                        });
+                      },
+                      options: [
+                        'Jova',
+                        'Ambrozija',
+                        'Pelin',
+                        'Breza',
+                        'Pepeljuga/Štir',
+                        'Leska',
+                        'Tise/Čempresi',
+                        'Jasen',
+                        'Orah',
+                        'Bokvica',
+                        'Platan',
+                        'Trave',
+                        'Topola',
+                        'Hrast',
+                        'Kiselica',
+                        'Kopriva'
+                      ],
+                      selectedValues: selected,
+                      whenEmpty: 'Odaberite alergente',
+                    ),
                     const SizedBox(
                       height: 20,
                     ),
@@ -157,6 +194,17 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           );
                           //await FirebaseAuth.instance.currentUser!.updatePhotoURL('');
                           print("Nalog otvoren!");
+                          String alergenti = '';
+                          for(int i=0;i<selected.length;i++){
+                            alergenti += '${selected[i]} ';
+                          }
+                    
+                          Map<String, String> DataToSend = {
+                            'alergenti': alergenti,
+                          };
+                          _collectionReference
+                              .doc(FirebaseAuth.instance.currentUser!.uid)
+                              .set(DataToSend);
                           Navigator.push(
                               context,
                               MaterialPageRoute(
