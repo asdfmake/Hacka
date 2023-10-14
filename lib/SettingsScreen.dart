@@ -26,7 +26,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
           },
           icon: Icon(
             Icons.arrow_back,
-            color: Color(0xffA3B18D),
+            color: Color.fromARGB(255, 182, 185, 0),
           ),
         ),
       ),
@@ -45,7 +45,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               children: [
                 Icon(
                   Icons.person,
-                  color: Color(0xffA3B18D),
+                  color: Color.fromARGB(255, 182, 185, 0),
                 ),
                 SizedBox(
                   width: 8,
@@ -75,7 +75,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               children: [
                 Icon(
                   Icons.volume_up_outlined,
-                  color: Color(0xffA3B18D),
+                  color: Color.fromARGB(255, 182, 185, 0),
                 ),
                 SizedBox(
                   width: 8,
@@ -140,7 +140,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             child: CupertinoSwitch(
               value: isActive,
               trackColor: Colors.grey,
-              activeColor: Color(0xffA3B18D),
+              activeColor: Color.fromARGB(255, 182, 185, 0),
               onChanged: (bool val) {},
             ))
       ],
@@ -202,7 +202,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                           Navigator.of(context).pop();
                         },
                         style: ElevatedButton.styleFrom(
-                          primary: Color(0xff3B5A42),
+                          primary: Color.fromARGB(255, 182, 185, 0),
                           // fixedSize: Size(250, 50),
                         ),
                         child: Text(

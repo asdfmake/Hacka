@@ -45,7 +45,7 @@ class _MyHomePageState extends State<MyHomePage> {
           fontFamily: 'Caros',
           scaffoldBackgroundColor: const Color(0xffF2F2F2)),
       home: FirebaseAuth.instance.currentUser != null
-          ? PocetakScreen()
+          ? HomeScreen()
           : PocetakScreen(), //SignInScreen  //HomeScreen // ChatPage // PocetakScreen // FunkcionalnostiParkingaScreen
     );
   }

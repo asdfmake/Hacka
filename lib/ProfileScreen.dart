@@ -93,7 +93,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           IconButton(
             icon: Icon(
               Icons.settings,
-              color: Color(0xffA3B18D),
+              color: Color.fromARGB(255, 112, 114, 0),
             ),
             onPressed: () {
               Navigator.of(context).push(MaterialPageRoute(
@@ -102,7 +102,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           ),
         ],
       ),
-      bottomNavigationBar: BottomAppBar(
+     /* bottomNavigationBar: BottomAppBar(
         child: Container(
           height: 80,
           width: double.maxFinite,
@@ -141,8 +141,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             if (states.contains(MaterialState.pressed)) {
                               return Colors.white;
                             }
-                            return Color(0xff3B5A42);
-                            //Color(0xff3B5A42);
+                            return Color.fromARGB(255, 253, 255, 110);
+                            //Color.fromARGB(255, 253, 255, 110);
                           }),
                           shape:
                               MaterialStateProperty.all<RoundedRectangleBorder>(
@@ -153,7 +153,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ],
           ),
         ),
-      ),
+      ),*/
       body: Container(
         padding: EdgeInsets.only(left: 16, top: 25, right: 16),
         child: GestureDetector(
@@ -259,7 +259,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       child: Text(
                         'Home',
                         style: TextStyle(
-                            color: Colors.white,
+                            color: Colors.black,
                             fontWeight: FontWeight.bold,
                             fontSize:
                                 16 / MediaQuery.textScaleFactorOf(context)),
@@ -270,7 +270,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             if (states.contains(MaterialState.pressed)) {
                               return Colors.white;
                             }
-                            return Color(0xff3B5A42);
+                            return Color.fromARGB(255, 253, 255, 110);
                           }),
                           shape:
                               MaterialStateProperty.all<RoundedRectangleBorder>(
@@ -299,7 +299,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           child: Text(
                             'Home',
                             style: TextStyle(
-                                color: Colors.white,
+                                color: Colors.black,
                                 fontWeight: FontWeight.bold,
                                 fontSize:
                                     16 / MediaQuery.textScaleFactorOf(context)),
@@ -310,7 +310,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 if (states.contains(MaterialState.pressed)) {
                                   return Colors.white;
                                 }
-                                return Color(0xff3B5A42);
+                                return Color.fromARGB(255, 253, 255, 110);
                               }),
                               shape: MaterialStateProperty.all<
                                       RoundedRectangleBorder>(
@@ -359,7 +359,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           child: Text(
                             'Home',
                             style: TextStyle(
-                                color: Colors.white,
+                                color: Colors.black,
                                 fontWeight: FontWeight.bold,
                                 fontSize:
                                     16 / MediaQuery.textScaleFactorOf(context)),
@@ -370,7 +370,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 if (states.contains(MaterialState.pressed)) {
                                   return Colors.white;
                                 }
-                                return Color(0xff3B5A42);
+                                return Color.fromARGB(255, 253, 255, 110);
                               }),
                               shape: MaterialStateProperty.all<
                                       RoundedRectangleBorder>(
