@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:hacka/ProfileScreen.dart';
 import 'package:hacka/signin_screen.dart';
+import 'package:csv/csv.dart';
+import 'package:flutter/services.dart' show rootBundle;
+
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -11,6 +14,32 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  String _dropdownValue = 'NOVI BEOGRAD';
+  void dropdownCallback(String? selectedValue) {
+    if (selectedValue is String) {
+      setState(() {
+        _dropdownValue = selectedValue;
+      });
+    }
+  }
+
+  List<List<dynamic>> _data = [];
+
+  void _loadCSV() async {
+    final rawData = await rootBundle.loadString("assets/tables/pollen_train.csv");
+    List<List<dynamic>> listData = const CsvToListConverter().convert(rawData);
+    print('==========================================');
+    print(listData[0][1]);
+    setState(() {
+      _data = listData;
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _loadCSV();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -58,7 +87,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                     decoration: BoxDecoration(
                                       shape: BoxShape.circle,
                                       image: DecorationImage(
-                                          image: AssetImage('assets/images/profile.png'),
+                                          image: AssetImage(
+                                              'assets/images/profile.png'),
                                           fit: BoxFit.fill),
                                     ),
                                   ),
@@ -109,6 +139,25 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            DropdownButton(
+              items: const [
+                DropdownMenuItem(
+                    child: Text('NOVI BEOGRAD'), value: 'NOVI BEOGRAD'),
+                DropdownMenuItem(child: Text('VRŠAC'), value: 'VRŠAC'),
+                DropdownMenuItem(
+                    child: Text('KRAGUJEVAC'), value: 'KRAGUJEVAC'),
+                DropdownMenuItem(child: Text('KRALJEVO'), value: 'KRALJEVO'),
+                DropdownMenuItem(child: Text('NIŠ'), value: 'NIŠ'),
+                DropdownMenuItem(child: Text('POŽAREVAC'), value: 'POŽAREVAC'),
+                DropdownMenuItem(child: Text('SUBOTICA'), value: 'SUBOTICA'),
+              ],
+              value: _dropdownValue,
+              onChanged: dropdownCallback,
+              hint: Text("Gradovi"),
+            ),
+            SizedBox(
+              height: 100,
+            ),
             Text(
               'Sutra:',
               style: TextStyle(fontSize: 25),
