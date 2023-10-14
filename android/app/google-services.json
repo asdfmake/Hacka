@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "607917888128",
+    "project_id": "hacka-e33f3",
+    "storage_bucket": "hacka-e33f3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:607917888128:android:0fbc17c63a5d85d1290c65",
+        "android_client_info": {
+          "package_name": "com.example.hacka"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAOh0_cfR9Nj2l-5s6uC55D5uOIoHE3lpA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
