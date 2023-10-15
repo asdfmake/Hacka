@@ -79,7 +79,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         leading: IconButton(
           icon: Icon(
             Icons.arrow_back,
-            color: Color(0xffA3B18D),
+            color: Color.fromARGB(255, 198, 152, 61),
           ),
           onPressed: () {
             Navigator.push(context,
@@ -93,7 +93,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           IconButton(
             icon: Icon(
               Icons.settings,
-              color: Color.fromARGB(255, 112, 114, 0),
+              color: Color.fromARGB(255, 207, 164, 46),
             ),
             onPressed: () {
               Navigator.of(context).push(MaterialPageRoute(
@@ -141,8 +141,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             if (states.contains(MaterialState.pressed)) {
                               return Colors.white;
                             }
-                            return Color.fromARGB(255, 253, 255, 110);
-                            //Color.fromARGB(255, 253, 255, 110);
+                            return Color.fromRGBO(255, 204, 51, 1);
+                            //Color.fromRGBO(255, 204, 51, 1);
                           }),
                           shape:
                               MaterialStateProperty.all<RoundedRectangleBorder>(
@@ -211,7 +211,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 color:
                                     Theme.of(context).scaffoldBackgroundColor,
                               ),
-                              color: Color.fromARGB(255, 168, 162, 77),
+                              color: Color.fromARGB(255, 197, 166, 57),
                             ),
                             child: Icon(
                               Icons.edit,
@@ -238,7 +238,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   email_controller),
                   */
               SizedBox(
-                height: 5,
+                height: 105,
               ),
               Container(
                   width: MediaQuery.of(context).size.width,
@@ -257,7 +257,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         });
                       },
                       child: Text(
-                        'Home',
+                        'Dugoročna prognoza',
                         style: TextStyle(
                             color: Colors.black,
                             fontWeight: FontWeight.bold,
@@ -270,7 +270,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             if (states.contains(MaterialState.pressed)) {
                               return Colors.white;
                             }
-                            return Color.fromARGB(255, 253, 255, 110);
+                            return Color.fromRGBO(255, 204, 51, 1);
                           }),
                           shape:
                               MaterialStateProperty.all<RoundedRectangleBorder>(
@@ -297,7 +297,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             });
                           },
                           child: Text(
-                            'Home',
+                            'Mapa rasprostranjenosti polena',
                             style: TextStyle(
                                 color: Colors.black,
                                 fontWeight: FontWeight.bold,
@@ -310,7 +310,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 if (states.contains(MaterialState.pressed)) {
                                   return Colors.white;
                                 }
-                                return Color.fromARGB(255, 253, 255, 110);
+                                return Color.fromRGBO(255, 204, 51, 1);
                               }),
                               shape: MaterialStateProperty.all<
                                       RoundedRectangleBorder>(
@@ -357,7 +357,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             });
                           },
                           child: Text(
-                            'Home',
+                            'Zdravstveni saveti',
                             style: TextStyle(
                                 color: Colors.black,
                                 fontWeight: FontWeight.bold,
@@ -370,7 +370,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 if (states.contains(MaterialState.pressed)) {
                                   return Colors.white;
                                 }
-                                return Color.fromARGB(255, 253, 255, 110);
+                                return Color.fromRGBO(255, 204, 51, 1);
                               }),
                               shape: MaterialStateProperty.all<
                                       RoundedRectangleBorder>(

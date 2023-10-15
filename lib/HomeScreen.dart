@@ -5,7 +5,6 @@ import 'package:hacka/signin_screen.dart';
 import 'package:csv/csv.dart';
 import 'package:flutter/services.dart' show rootBundle;
 
-
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
@@ -17,16 +16,22 @@ class _HomeScreenState extends State<HomeScreen> {
   String _dropdownValue = 'NOVI BEOGRAD';
   void dropdownCallback(String? selectedValue) {
     if (selectedValue is String) {
+      //2020-08-22 batch_id = 81
       setState(() {
         _dropdownValue = selectedValue;
       });
     }
   }
 
+  String sutra = '126';
+  String prekosutra = '110';
+  String nakosutra = '139';
+
   List<List<dynamic>> _data = [];
 
   void _loadCSV() async {
-    final rawData = await rootBundle.loadString("assets/tables/pollen_train.csv");
+    final rawData =
+        await rootBundle.loadString("assets/tables/pollen_train.csv");
     List<List<dynamic>> listData = const CsvToListConverter().convert(rawData);
     print('==========================================');
     print(listData[0][1]);
@@ -40,6 +45,7 @@ class _HomeScreenState extends State<HomeScreen> {
     super.initState();
     _loadCSV();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,7 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
           color: Colors.black, //change your color here
         ),
         automaticallyImplyLeading: false,
-        backgroundColor: Color.fromARGB(255, 253, 255, 110),
+        backgroundColor: Color.fromRGBO(255, 204, 51, 1),
         title: Row(
           children: [
             Spacer(),
@@ -135,10 +141,13 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
       ),
-      body: Center(
+      body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            SizedBox(
+              height: 20,
+            ),
             DropdownButton(
               items: const [
                 DropdownMenuItem(
@@ -156,26 +165,122 @@ class _HomeScreenState extends State<HomeScreen> {
               hint: Text("Gradovi"),
             ),
             SizedBox(
-              height: 100,
+              height: 40,
             ),
-            Text(
-              'Sutra:',
-              style: TextStyle(fontSize: 25),
+            Padding(
+              padding: EdgeInsets.only(left: 25, bottom: 3, right: 25, top: 10),
+              child: Card(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    ListTile(
+                      leading: Icon(Icons.filter_1_rounded),
+                      title: Text('Prognoza za sutra:',
+                          style: TextStyle(fontSize: 20)),
+                      subtitle: Text(
+                          'Predviđena koncentracija polena ambrozije u vazduhu: $sutra\nOva količina je potencijalno opasna po Vaše zdravlje.'),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: <Widget>[
+                        TextButton(
+                          child: const Text('SAVETI',
+                              style: TextStyle(
+                                  color: Color.fromRGBO(186, 149, 37, 1))),
+                          onPressed: () {/* ... */},
+                        ),
+                        const SizedBox(width: 8),
+                        TextButton(
+                          child: const Text('MAPA POLENA',
+                              style: TextStyle(
+                                  color: Color.fromRGBO(186, 149, 37, 1))),
+                          onPressed: () {/* ... */},
+                        ),
+                        const SizedBox(width: 8),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
             ),
             SizedBox(
-              height: 150,
+              height: 20,
             ),
-            Text(
-              'Prekosutra:',
-              style: TextStyle(fontSize: 25),
+            Padding(
+              padding: EdgeInsets.only(left: 25, bottom: 3, right: 25, top: 10),
+              child: Card(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    ListTile(
+                      leading: Icon(Icons.filter_2_rounded),
+                      title: Text('Prognoza za prekosutra:',
+                          style: TextStyle(fontSize: 20,)),
+                      subtitle: Text(
+                          'Predviđena koncentracija polena ambrozije u vazduhu: $prekosutra\nOva količina je potencijalno opasna po Vaše zdravlje.'),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: <Widget>[
+                        TextButton(
+                          child: const Text('SAVETI',
+                              style: TextStyle(
+                                  color: Color.fromRGBO(186, 149, 37, 1))),
+                          onPressed: () {/* ... */},
+                        ),
+                        const SizedBox(width: 8),
+                        TextButton(
+                          child: const Text('MAPA POLENA',
+                              style: TextStyle(
+                                  color: Color.fromRGBO(186, 149, 37, 1))),
+                          onPressed: () {/* ... */},
+                        ),
+                        const SizedBox(width: 8),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
             ),
             SizedBox(
-              height: 150,
+              height: 20,
             ),
-            Text(
-              'Nakosutra:',
-              style: TextStyle(fontSize: 25),
-            )
+            Padding(
+              padding: EdgeInsets.only(left: 25, bottom: 3, right: 25, top: 10),
+              child: Card(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    ListTile(
+                      leading: Icon(Icons.filter_3_rounded),
+                      title: Text('Prognoza za nakosutra:',
+                          style: TextStyle(fontSize: 20)),
+                      subtitle: Text(
+                          'Predviđena koncentracija polena ambrozije u vazduhu: $nakosutra\nOva količina je potencijalno opasna po Vaše zdravlje.'),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: <Widget>[
+                        TextButton(
+                          child: const Text('SAVETI',
+                              style: TextStyle(
+                                  color: Color.fromRGBO(186, 149, 37, 1))),
+                          onPressed: () {/* ... */},
+                        ),
+                        const SizedBox(width: 8),
+                        TextButton(
+                          child: const Text('MAPA POLENA',
+                              style: TextStyle(
+                                  color: Color.fromRGBO(186, 149, 37, 1))),
+                          onPressed: () {/* ... */},
+                        ),
+                        const SizedBox(width: 8),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ),
           ],
         ),
       ),

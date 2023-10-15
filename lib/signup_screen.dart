@@ -51,7 +51,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
           child: SingleChildScrollView(
             child: Padding(
                 padding: EdgeInsets.fromLTRB(
-                    20, MediaQuery.of(context).size.height * 0.1, 20, 0),
+                    20, MediaQuery.of(context).size.height * 0.05, 20, 0),
                 child: Column(
                   children: <Widget>[
                     /* Text('Registracija',
@@ -291,7 +291,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
             " Prijavi se",
             textScaleFactor: 1,
             style: TextStyle(
-                color: Color.fromARGB(211, 153, 140, 0),
+                color: Color.fromARGB(210, 222, 151, 0),
                 fontWeight: FontWeight.bold,
                 fontSize: 14),
           ),

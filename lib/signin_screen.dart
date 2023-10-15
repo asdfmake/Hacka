@@ -80,7 +80,7 @@ class _SignInScreenState extends State<SignInScreen> {
                           child: Text("Zaboravili ste lozinku?",
                               textScaleFactor: 1.0,
                               style: TextStyle(
-                                  color: Color.fromARGB(211, 153, 140, 0), fontSize: 14)),
+                                  color: Color.fromARGB(210, 222, 151, 0), fontSize: 14)),
                         ),
                         Spacer(),
                       ]),
@@ -204,7 +204,7 @@ class _SignInScreenState extends State<SignInScreen> {
             " Registracija",
             textScaleFactor: 1.0,
             style: TextStyle(
-                color: Color.fromARGB(211, 153, 140, 0),
+                color: Color.fromARGB(210, 222, 151, 0),
                 fontWeight: FontWeight.bold,
                 fontSize: 14),
           ),
